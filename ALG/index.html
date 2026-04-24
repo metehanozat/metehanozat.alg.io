@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ALG Otomatik Kapı Sistemleri – Fotoselli kapı, seksiyonel kapı, bariyer ve güvenlik sistemlerinde güvenilir marka. Konya merkezli, Türkiye geneli hizmet. Ücretsiz keşif ve teklif." />
+  <meta name="keywords" content="otomatik kapı, fotoselli kapı, seksiyonel kapı, bariyer, endüstriyel kapı, plaka tanıma, hızlı pvc kapı, Konya" />
+  <meta property="og:title" content="ALG Otomatik Kapı Sistemleri" />
+  <meta property="og:description" content="20 yıllık deneyim, 500+ tamamlanan proje. Ücretsiz keşif ve teklif için hemen arayın." />
+  <meta property="og:type" content="website" />
+  <title>ALG Otomatik Kapı Sistemleri | Profesyonel Kapı & Güvenlik Sistemleri</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preload" href="images/background.webp" as="image" imagesrcset="images/background.webp" />
+  <script src="translations.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Global Yazı Tipi ve Renk Teması (Moved to style.css) */
+    :root {
+      --c-accent: #00BFFF; /* Derin Gökyüzü Mavisi */
+      --c-bg: #f0f7ff;    /* Açık Mavi Arkaplan */
+      --c-bg-alt: #b9d0e8; /* Hafif Gri Arkaplan (Alternatif) */
+      --c-text: #000000;  /* Siyah Metin */
+    }
+    .text-accent, .badge, .service-link, .product-icon, .pillar-icon, .contact-icon { color: var(--c-accent) !important; }
+    .btn-primary, .nav-call-btn, .hero-badge, .float-cta a, .form-submit { 
+      background-color: var(--c-accent) !important; border-color: var(--c-accent) !important; color: #fff !important; 
+    }
+    .btn-primary:hover, .nav-call-btn:hover, .form-submit:hover, .float-cta a:hover { 
+      background-color: #0091c2 !important; border-color: #0091c2 !important; 
+    }
+    .navbar, .nav-dropdown-menu, .hero-overlay, .trust-bar, .mobile-menu, .float-cta { 
+      background-color: var(--c-bg) !important; color: #000000 !important; 
+    }
+    .section-title, .section-desc, .nav-dropdown-menu a, .mobile-link, .contact-label { 
+      color: var(--c-text) !important;
+    }
+    .nav-links a { color: #fff !important; }
+    .navbar.scrolled .nav-links a { color: #000 !important; }
+
+    /* Zebra Desenli Arkaplanlar: Bir Açık Bir Koyu */
+    .services, .products, .about, .contact { background-color: var(--c-bg) !important; }
+    .why-us, .projects, .references { background-color: var(--c-bg-alt) !important; }
+    .why-card { background: #ffffff !important; border: 1px solid #e2e8f0; color: #000000 !important; }
+
+    .hero-overlay { background: rgba(0, 0, 0, 0.6) !important; }
+    .trust-sep { background-color: #e2e8f0 !important; }
+    .mobile-close, .lightbox-close { color: var(--c-text) !important; }
+    .hero-bg { background-image: url('images/background.webp'); background-size: cover; background-position: center; }
+
+    /* Navbar Şeffaflık Ayarları */
+    .navbar { background-color: transparent !important; transition: all 0.3s ease; border-bottom: none !important; }
+    .navbar.scrolled { background-color: rgba(255, 255, 255, 0.95) !important; backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    
+    /* Navbar Kaydırıldığında Dil Butonu Renklerini Düzenle */
+    .navbar.scrolled .lang-toggle { background: rgba(0, 0, 0, 0.05); border-color: rgba(0, 0, 0, 0.1); }
+    .navbar.scrolled .lang-toggle-btn { color: rgba(0, 0, 0, 0.4); }
+    .navbar.scrolled .lang-toggle-btn.active { color: #fff; } /* Slider üzerindeki yazı beyaz kalsın */
+
+    .nav-links a { font-weight: 700; font-size: 17px; letter-spacing: 0.3px; }
+
+    /* Ana Sayfa İçerik Ortalama */
+    .hero-content { text-align: center; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+    .hero-actions, .hero-stats { justify-content: center; width: 100%; }
+
+    /* İletişim Bölümü Düzeni: Bilgi (Sol) - Form (Orta) - Harita (Sağ) */
+    .contact-inner { display: grid; grid-template-columns: 1fr; gap: 30px; }
+    @media (min-width: 1024px) {
+      .contact-inner { grid-template-columns: 0.8fr 1.2fr 1fr; align-items: stretch; gap: 40px; }
+      .map-wrap { height: 100%; min-height: 450px; }
+      .map-wrap iframe { width: 100%; height: 100%; min-height: 450px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    }
+
+    /* Hizmet Kartları - Tam Kaplama Görsel Tasarımı */
+    .services-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr) !important; 
+      gap: 24px; 
+      justify-content: center; 
+    }
+    .service-card { 
+      position: relative; 
+      height: 480px; 
+      border: none; 
+      border-radius: 24px;
+      overflow: hidden; 
+      display: flex; 
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+    .service-img-wrap { position: absolute; inset: 0; height: 100%; width: 100%; z-index: 1; }
+    .service-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .service-card:hover .service-img { transform: scale(1.15); }
+    .service-overlay { 
+      position: absolute; 
+      inset: 0; 
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 25%, rgba(0,0,0,0) 60%) !important; 
+      z-index: 2; 
+      transition: opacity 0.4s ease;
+    }
+    .service-body { 
+      position: absolute; 
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3; 
+      width: 100%; 
+      padding: 25px; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: flex-start; 
+      text-align: left; 
+    }
+    .service-title { 
+      color: #ffffff !important; 
+      font-size: 21px; 
+      font-weight: 800; 
+      margin-bottom: 5px; 
+      text-shadow: 2px 2px 12px rgba(0,0,0,1);
+      transition: transform 0.4s ease;
+    }
+    .service-desc { 
+      color: rgba(255,255,255,0.95) !important; 
+      font-size: 13.5px; 
+      margin: 0; 
+      line-height: 1.5; 
+      text-shadow: 1px 1px 8px rgba(0,0,0,1);
+      opacity: 1;
+      transform: none;
+    }
+    .service-card:hover .service-title { transform: translateY(-5px); color: var(--c-accent) !important; }
+
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 768px) {
+      .services-grid { grid-template-columns: 1fr !important; }
+      .service-card { height: 400px; }
+    }
+  </style>
+</head>
+<body>
+<!-- ══ PRELOADER ══ -->
+<div id="preloader">
+  <img id="preloaderLogo" src="logo.png" alt="ALG Logo" />
+  <div class="preloader-bar-wrapper">
+    <div id="preloaderBar"></div>
+  </div>
+</div>
+
+<!-- ══ FLOATING CTA BAR (Mobile) ══ -->
+<div class="float-cta" id="floatCta">
+  <a href="tel:+905369493505" class="float-cta-call">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    Hemen Ara
+  </a>
+  <a href="#iletisim" class="float-cta-quote">Teklif Al</a>
+</div>
+
+<!-- ══ LIGHTBOX ══ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Proje galerisi">
+  <button class="lightbox-close" id="lbClose" aria-label="Kapat">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Önceki">&#8592;</button>
+  <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Sonraki">&#8594;</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lbImg" src="" alt="Proje fotoğrafı" tabindex="0" />
+    <div>
+      <span class="lightbox-meta" id="lbMeta"></span>
+      <span class="lightbox-counter" id="lbCounter"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Ana navigasyon">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="ALG - Ana Sayfa">
+      <img src="logo.png" alt="ALG Logo" class="logo-img" fetchpriority="high" decoding="async" width="180" height="44">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#anasayfa" data-i18n="nav_home">Anasayfa</a></li>
+      <li><a href="#hizmetler" data-i18n="nav_services">Hizmetlerimiz</a></li>
+      <li><a href="#projeler" data-i18n="nav_projects">Projeler</a></li>
+      <li><a href="#iletisim" data-i18n="nav_contact">İletişim</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle" onclick="changeLang(localStorage.getItem('preferredLang') === 'en' ? 'tr' : 'en')">
+        <div class="lang-toggle-slider"></div>
+        <button class="lang-toggle-btn" data-lang="tr">TR</button>
+        <button class="lang-toggle-btn" data-lang="en">EN</button>
+      </div>
+      <a href="tel:+905369493505" class="nav-call-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        <span data-i18n="nav_cta">Bizi Arayın</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menüyü aç/kapat" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobil menü">
+  <button class="mobile-close" id="mobileClose" aria-label="Kapat">✕</button>
+  <a href="#anasayfa" class="mobile-link" data-i18n="nav_home">Anasayfa</a>
+  <a href="#hizmetler" class="mobile-link" data-i18n="nav_services">Hizmetlerimiz</a>
+  <a href="#projeler" class="mobile-link" data-i18n="nav_projects">Projeler</a>
+  <a href="#iletisim" class="mobile-link" data-i18n="nav_contact">İletişim</a>
+  <a href="tel:+905369493505" class="mobile-cta-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    +90 536 949 3505
+  </a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="anasayfa" aria-label="Ana bölüm">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge" data-i18n="hero_kicker">Güvenlik & Otomasyon Sistemleri</div>
+      <h1 class="hero-title" data-i18n="hero_title">
+        Güvenliğinizi <span class="text-accent">ve</span><br />Konforunuzu<br /><em>Otomatikleştiriyoruz</em>
+      </h1>
+      <p class="hero-desc" data-i18n="hero_desc">
+        <strong class="text-accent">Estetik</strong>, <strong class="text-accent">güvenlik</strong> ve <strong class="text-accent">teknolojiyi</strong> bir araya getiren modern otomatik kapı çözümleriyle alanlarınıza değer katıyoruz.
+      </p>
+      <div class="hero-actions">
+        <a href="#iletisim" class="btn-primary" data-i18n="hero_btn">
+          Ücretsiz Teklif Al
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:+905369493505" class="btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Hemen Arayın
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">20<span>+</span></div>
+          <div class="hero-stat-label" data-i18n="stat_exp">Yıllık Deneyim</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">500<span>+</span></div>
+          <div class="hero-stat-label" data-i18n="stat_proj">Tamamlanan Proje</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">15<span>+</span></div>
+          <div class="hero-stat-label" data-i18n="stat_cat">Ürün Kategorisi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Aşağı kaydır</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section class="section services" id="hizmetler">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="badge" data-i18n="services_badge">Hizmetlerimiz</div>
+      <h2 class="section-title" data-i18n="services_title">İhtiyacınıza Özel<br /><span class="text-accent">Kapı Çözümleri</span></h2>
+      <p class="section-desc" data-i18n="services_desc">Konutlardan fabrikalara, otoparklardan alışveriş merkezlerine kadar her alana özel çözümler sunuyoruz.</p>
+    </div>
+    <div class="services-grid">
+      <!-- Seksiyonel Kapı -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-img-wrap">
+          <img src="images/hizmetler/hizmet1.webp" alt="Seksiyonel Kapı" class="service-img" loading="lazy">
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="serv_seks_title">Seksiyonel Kapılar</h3>
+          <p class="service-desc" data-i18n="serv_seks_desc">Endüstriyel tesislerde ısı yalıtımı ve dayanıklılığı bir arada sunan kapı sistemleri.</p>
+        </div>
+      </div>
+      <!-- Fotoselli Kapı -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-img-wrap">
+          <img src="images/hizmetler/hizmet2.webp" alt="Fotoselli Kapı" class="service-img" loading="lazy">
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="serv_foto_title">Fotoselli Kapılar</h3>
+          <p class="service-desc" data-i18n="serv_foto_desc">Yoğun giriş-çıkış alanlarında pratik, hijyenik ve modern çözümler.</p>
+        </div>
+      </div>
+      <!-- Bariyer -->
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-img-wrap">
+          <img src="images/hizmetler/hizmet3.webp" alt="Bariyer" class="service-img" loading="lazy">
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="serv_bar_title">Bariyer & Bollard</h3>
+          <p class="service-desc" data-i18n="serv_bar_desc">Otopark ve güvenlik noktaları için hızlı ve güvenilir bariyer sistemleri.</p>
+        </div>
+      </div>
+      <!-- PVC Kapı -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-img-wrap">
+          <img src="images/hizmetler/hizmet4.webp" alt="Hızlı PVC Kapı" class="service-img" loading="lazy">
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="serv_pvc_title">Hızlı PVC Kapılar</h3>
+          <p class="service-desc" data-i18n="serv_pvc_desc">Lojistik merkezleri ve fabrikalar için yüksek hızlı geçiş çözümleri.</p>
+        </div>
+      </div>
+      <!-- Bahçe Kapısı -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-img-wrap">
+          <img src="images/hizmetler/hizmet5.webp" alt="Bahçe Kapısı" class="service-img" loading="lazy">
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="serv_bahce_title">Otomatik Bahçe Kapıları</h3>
+          <p class="service-desc" data-i18n="serv_bahce_desc">Konutlar için güvenli ve estetik kayar kapı otomasyonları.</p>
+        </div>
+      </div>
+      <!-- Plaka Tanıma -->
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-img-wrap">
+          <img src="images/hizmetler/hizmet6.webp" alt="Plaka Tanıma" class="service-img" loading="lazy">
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-title" data-i18n="serv_plaka_title">Plaka Tanıma & Güvenlik</h3>
+          <p class="service-desc" data-i18n="serv_plaka_desc">Tesis güvenliği için ileri teknoloji görüntüleme sistemleri.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section class="section projects" id="projeler">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="badge" data-i18n="projects_badge">Projelerimiz</div>
+      <h2 class="section-title" data-i18n="projects_title">Tamamlanan<br /><span class="text-accent">Başarılı Projeler</span></h2>
+    </div>
+    <div class="slider-wrap">
+      <button class="slider-btn prev-nav" id="prevBtn" aria-label="Önceki">&#8592;</button>
+      <div class="slider-viewport">
+        <div class="slider-track" id="projectsTrack">
+          <!-- Project cards -->
+          <div class="project-card">
+            <img src="images/proje/proje1.webp" alt="Proje 1" class="project-img" loading="lazy" decoding="async" width="500" height="480" />
+          </div>
+          <div class="project-card">
+            <img src="images/proje/proje2.webp" alt="Proje 2" class="project-img" loading="lazy" decoding="async" width="500" height="480" />
+          </div>
+          <div class="project-card">
+            <img src="images/proje/proje3.webp" alt="Proje 3" class="project-img" loading="lazy" decoding="async" width="500" height="480" />
+          </div>
+          <div class="project-card">
+            <img src="images/proje/proje4.webp" alt="Proje 4" class="project-img" loading="lazy" decoding="async" width="500" height="480" />
+          </div>
+          <div class="project-card">
+            <img src="images/proje/proje5.webp" alt="Proje 5" class="project-img" loading="lazy" decoding="async" width="500" height="480" />
+          </div>
+          <div class="project-card">
+            <img src="images/proje/proje6.webp" alt="Proje 6" class="project-img" loading="lazy" decoding="async" width="500" height="480" />
+          </div>
+          <div class="project-card">
+            <img src="images/proje/proje7.webp" alt="Proje 7" class="project-img" loading="lazy" decoding="async" width="500" height="480" />
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn next-nav" id="nextBtn" aria-label="Sonraki">&#8594;</button>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-top: 20px;" class="reveal">
+      <div></div>
+      <div class="slider-dots" id="sliderDots" style="margin-top: 0;"></div>
+      <div style="text-align: right;">
+        <a href="ürünler sayfası.html" class="btn-primary" data-i18n="more_projects" style="padding: 12px 28px;">Tümünü Gör</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="section about" id="hakkimizda">
+  <div class="container about-inner">
+    <div class="about-img-wrap reveal">
+      <img src="images/d.webp" alt="ALG Ekip" class="about-img" loading="lazy" decoding="async" width="600" height="750" onerror="this.src='images/background2.webp'" />
+      <div class="about-img-badge">
+        <span class="about-badge-num">20+</span>
+        <span class="about-badge-text">Yıllık<br>Deneyim</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="badge reveal" data-i18n="about_badge">Biz Kimiz</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="about_title">Sektörde Öncü,<br /><span class="text-accent">Müşteride Birinci</span></h2>
+      <p class="section-desc reveal reveal-delay-2" data-i18n="about_desc">ALG Otomatik Kapı Sistemleri, yılların birikimi ile yaşam ve çalışma alanlarınızı daha güvenli, konforlu ve estetik hale getirmek için hizmet vermektedir.</p>
+      <div class="about-pillars">
+        <div class="about-pillar reveal reveal-delay-2">
+          <div class="pillar-icon">🎯</div>
+          <div>
+            <div class="pillar-title" data-i18n="about_mis_title">Misyonumuz</div>
+            <p class="pillar-desc" data-i18n="about_mis_desc">Modern teknolojiyi estetik tasarımlarla birleştirerek güvenliğinizi ve konforunuzu artırmak.</p>
+          </div>
+        </div>
+        <div class="about-pillar reveal reveal-delay-3">
+          <div class="pillar-icon">🔭</div>
+          <div>
+            <div class="pillar-title" data-i18n="about_viz_title">Vizyonumuz</div>
+            <p class="pillar-desc" data-i18n="about_viz_desc">Sektörde öncü ve yenilikçi bir marka olarak kalıcı değerler üretmek ve güveni büyütmek.</p>
+          </div>
+        </div>
+        <div class="about-pillar reveal reveal-delay-4">
+          <div class="pillar-icon">🤝</div>
+          <div>
+            <div class="pillar-title" data-i18n="about_cus_title">Müşteri Odaklılık</div>
+            <p class="pillar-desc" data-i18n="about_cus_desc">Her projede müşteri memnuniyetini ilke edinerek uzun süreli iş birlikleri kuruyoruz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REFERENCES ══ -->
+<section class="section references" id="referanslar">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="badge" data-i18n="refs_badge">Referanslarımız</div>
+      <h2 class="section-title" data-i18n="refs_title">Güven Duyduğumuz,<br /><span class="text-accent">Güvendikleri Marka</span></h2>
+      <p class="section-desc" data-i18n="refs_desc">Kamu kurumlarından özel sektöre, Türkiye'nin önde gelen kuruluşlarına hizmet veriyoruz.</p>
+    </div>
+    <div class="slider-wrap">
+      <button class="slider-btn prev-nav" id="refsPrevBtn" aria-label="Önceki">&#8592;</button>
+      <div class="logo-slider reveal">
+        <div class="logo-track" id="refsTrack">
+        <div class="logo-item"><img src="images/referans/referans (1).webp" alt="Referans 1"></div>
+        <div class="logo-item"><img src="images/referans/referans (2).webp" alt="Referans 2"></div>
+        <div class="logo-item"><img src="images/referans/referans (3).webp" alt="Referans 3"></div>
+        <div class="logo-item"><img src="images/referans/referans (4).webp" alt="Referans 4"></div>
+        <div class="logo-item"><img src="images/referans/referans (5).webp" alt="Referans 5"></div>
+        <div class="logo-item"><img src="images/referans/referans (6).webp" alt="Referans 6"></div>
+        <div class="logo-item"><img src="images/referans/referans (7).webp" alt="Referans 7"></div>
+        <div class="logo-item"><img src="images/referans/referans (8).webp" alt="Referans 8"></div>
+        <div class="logo-item"><img src="images/referans/referans (9).webp" alt="Referans 9"></div>
+        <div class="logo-item"><img src="images/referans/referans (10).webp" alt="Referans 10"></div>
+        <div class="logo-item"><img src="images/referans/referans (11).webp" alt="Referans 11"></div>
+        <div class="logo-item"><img src="images/referans/referans (12).webp" alt="Referans 12"></div>
+        <div class="logo-item"><img src="images/referans/referans (13).webp" alt="Referans 13"></div>
+        <div class="logo-item"><img src="images/referans/referans (14).webp" alt="Referans 14"></div>
+        <div class="logo-item"><img src="images/referans/referans (15).webp" alt="Referans 15"></div>
+        <div class="logo-item"><img src="images/referans/referans (16).webp" alt="Referans 16"></div>
+        <div class="logo-item"><img src="images/referans/referans (17).webp" alt="Referans 17"></div>
+        <div class="logo-item"><img src="images/referans/referans (18).webp" alt="Referans 18"></div>
+        <div class="logo-item"><img src="images/referans/referans (19).webp" alt="Referans 19"></div>
+        <div class="logo-item"><img src="images/referans/referans (20).webp" alt="Referans 20"></div>
+        <!-- 2. Set for seamless loop -->
+        <div class="logo-item"><img src="images/referans/referans (1).webp" alt="Referans 1"></div>
+        <div class="logo-item"><img src="images/referans/referans (2).webp" alt="Referans 2"></div>
+        <div class="logo-item"><img src="images/referans/referans (3).webp" alt="Referans 3"></div>
+        <div class="logo-item"><img src="images/referans/referans (4).webp" alt="Referans 4"></div>
+        <div class="logo-item"><img src="images/referans/referans (5).webp" alt="Referans 5"></div>
+        <div class="logo-item"><img src="images/referans/referans (6).webp" alt="Referans 6"></div>
+        <div class="logo-item"><img src="images/referans/referans (7).webp" alt="Referans 7"></div>
+        <div class="logo-item"><img src="images/referans/referans (8).webp" alt="Referans 8"></div>
+        <div class="logo-item"><img src="images/referans/referans (9).webp" alt="Referans 9"></div>
+        <div class="logo-item"><img src="images/referans/referans (10).webp" alt="Referans 10"></div>
+        <div class="logo-item"><img src="images/referans/referans (11).webp" alt="Referans 11"></div>
+        <div class="logo-item"><img src="images/referans/referans (12).webp" alt="Referans 12"></div>
+        <div class="logo-item"><img src="images/referans/referans (13).webp" alt="Referans 13"></div>
+        <div class="logo-item"><img src="images/referans/referans (14).webp" alt="Referans 14"></div>
+        <div class="logo-item"><img src="images/referans/referans (15).webp" alt="Referans 15"></div>
+        <div class="logo-item"><img src="images/referans/referans (16).webp" alt="Referans 16"></div>
+        <div class="logo-item"><img src="images/referans/referans (17).webp" alt="Referans 17"></div>
+        <div class="logo-item"><img src="images/referans/referans (18).webp" alt="Referans 18"></div>
+        <div class="logo-item"><img src="images/referans/referans (19).webp" alt="Referans 19"></div>
+        <div class="logo-item"><img src="images/referans/referans (20).webp" alt="Referans 20"></div>
+        </div>
+      </div>
+      <button class="slider-btn next-nav" id="refsNextBtn" aria-label="Sonraki">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOLUTION PARTNERS ══ -->
+<section class="section references" id="cozumortaklari">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="badge" data-i18n="partners_label">Güvenilir Çözüm Ortaklarımız</div>
+      <h2 class="section-title" data-i18n="partners_title">Birlikte Yaratıyoruz,<br /><span class="text-accent">Güçlü Çözümler</span></h2>
+      <p class="section-desc" data-i18n="partners_desc">Sektörün önde gelen markalarıyla iş birliği yaparak en kaliteli ürünleri sunuyoruz.</p>
+    </div>
+    <div class="slider-wrap">
+      <button class="slider-btn prev-nav" id="partnersPrevBtn" aria-label="Önceki">&#8592;</button>
+      <div class="logo-slider reveal">
+        <div class="logo-track" id="partnersTrack">
+        <div class="logo-item"><img src="images/cozumortaklari/czm (1).webp" alt="Çözüm Ortağı 1"></div>
+        <div class="logo-item"><img src="images/cozumortaklari/czm (2).webp" alt="Çözüm Ortağı 2"></div>
+        <div class="logo-item"><img src="images/cozumortaklari/czm (3).webp" alt="Çözüm Ortağı 3"></div>
+        <div class="logo-item"><img src="images/cozumortaklari/czm (4).webp" alt="Çözüm Ortağı 4"></div>
+        <div class="logo-item"><img src="images/cozumortaklari/czm (5).webp" alt="Çözüm Ortağı 5"></div>
+        <!-- 2. Set for seamless loop -->
+        <div class="logo-item"><img src="images/cozumortaklari/czm (1).webp" alt="Çözüm Ortağı 1"></div>
+        <div class="logo-item"><img src="images/cozumortaklari/czm (2).webp" alt="Çözüm Ortağı 2"></div>
+        <div class="logo-item"><img src="images/cozumortaklari/czm (3).webp" alt="Çözüm Ortağı 3"></div>
+        <div class="logo-item"><img src="images/cozumortaklari/czm (4).webp" alt="Çözüm Ortağı 4"></div>
+        <div class="logo-item"><img src="images/cozumortaklari/czm (5).webp" alt="Çözüm Ortağı 5"></div>
+        </div>
+      </div>
+      <button class="slider-btn next-nav" id="partnersNextBtn" aria-label="Sonraki">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="section contact" id="iletisim">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="badge" data-i18n="contact_badge">İletişim</div>
+      <h2 class="section-title" data-i18n="contact_title">Bize<br /><span class="text-accent">Ulaşın</span></h2>
+    </div>
+    <div class="contact-inner">
+      <div class="contact-info-col">
+        <div class="contact-item reveal reveal-delay-1">
+          <div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div>
+            <div class="contact-label" data-i18n="cont_address_label">Adres</div>
+            <div class="contact-value">72458. Sk. No:7, Çumra / Konya</div>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-2">
+          <div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
+          <div>
+            <div class="contact-label" data-i18n="cont_phone_label">Telefon</div>
+            <div class="contact-value"><a href="tel:+905369493505">+90 536 949 3505</a></div>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-3">
+          <div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <div>
+            <div class="contact-label" data-i18n="cont_email_label">E-posta</div>
+            <div class="contact-value"><a href="mailto:bilgi@algyapi.com">bilgi@algyapi.com</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-col reveal reveal-delay-2">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname" data-i18n="form_name">Ad Soyad</label>
+              <input class="form-input" type="text" id="fname" name="fname" placeholder="Adınız Soyadınız" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone" data-i18n="form_phone">Telefon</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+90 5__ ___ ____" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email" data-i18n="form_email">E-posta</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="email@example.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject" data-i18n="form_subject">Konu</label>
+            <select class="form-input" id="subject" name="subject">
+              <option value="">Konu seçin…</option>
+              <option>Fotoselli Kapı</option>
+              <option>Seksiyonel Kapı</option>
+              <option>Bariyer Sistemi</option>
+              <option>Hızlı PVC Kapı</option>
+              <option>Plaka Tanıma</option>
+              <option>Diğer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message" data-i18n="form_message">Mesajınız</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="İhtiyacınızı detaylıca açıklayın..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit" id="submitBtn">
+            <span data-i18n="form_submit">Mesaj Gönder</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="map-wrap reveal reveal-delay-3">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.7!2d32.7751!3d37.5747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDM0JzI5LjkiTiAzMsKwNDYnMzAuNCJF!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" allowfullscreen="" loading="lazy" title="ALG Konum"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <img src="logo.png" alt="ALG Logo" class="footer-logo" loading="lazy" decoding="async" width="150" height="44" />
+        <p class="footer-desc" data-i18n="footer_desc"><strong>ALG Otomatik Kapı Sistemleri</strong>, yaşam alanlarınıza <strong>güvenlik</strong>, <strong>konfor</strong> ve <strong>estetik</strong> katmak için <strong>kaliteli</strong> ve <strong>uzun ömürlü</strong> <strong>otomatik kapı çözümleri</strong> sunar.</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/905369493505?text=Merhaba%2C%20Alg%20Otomatik%20Kap%C4%B1%20Sistemleri%20i%C3%A7in%20fiyat%20ve%20hizmet%20detaylar%C4%B1n%C4%B1%20%C3%B6%C4%9Frenmek%20istiyorum." class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer_corp_title">Kurumsal</div>
+        <ul class="footer-links">
+          <li><a href="#hakkimizda" data-i18n="about_badge">Hakkımızda</a></li>
+          <li><a href="#referanslar" data-i18n="nav_refs">Referanslar</a></li>
+          <li><a href="#projeler" data-i18n="nav_projects">Projeler</a></li>
+          <li><a href="#iletisim" data-i18n="nav_contact">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer_cont_title">İletişim</div>
+        <ul class="footer-links">
+          <li><a href="tel:+905369493505"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px; vertical-align: middle;"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>+90 536 949 3505</a></li>
+          <li><a href="mailto:bilgi@algyapi.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px; vertical-align: middle;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>bilgi@algyapi.com</a></li>
+          <li style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.5;margin-top:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px; vertical-align: middle;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>72458. Sk. No:7<br />Çumra / Konya, Türkiye <a href="https://www.google.com/maps/search/?api=1&query=37.5747,32.7751" target="_blank" style="color:var(--c-accent); text-decoration:underline; margin-left:5px; font-size:12px;">(Haritada Gör)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-i18n="footer_copy">© 2025 ALG Otomatik Kapı Sistemleri. Tüm hakları saklıdır.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WHATSAPP FLOAT ══ -->
+<a href="https://wa.me/905369493505?text=Merhaba%2C%20Alg%20Otomatik%20Kap%C4%B1%20Sistemleri%20i%C3%A7in%20fiyat%20ve%20hizmet%20detaylar%C4%B1n%C4%B1%20%C3%B6%C4%9Frenmek%20istiyorum." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp üzerinden iletişim kurun">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="main.js"></script>
+</div> <!-- #main-content bitişi -->
+</body>
+</html>
